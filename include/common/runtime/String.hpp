@@ -2,13 +2,13 @@
 
 #include <algorithm>
 #include <cstring>
-#include <experimental/string_view>
+#include <string_view>
 #include <iostream>
 #include <string>
 
 class SmallStringView {
  public:
-   SmallStringView(std::experimental::string_view& s);
+   SmallStringView(std::string_view& s);
 
    SmallStringView(const char* start, uint32_t end);
 
@@ -23,7 +23,7 @@ class SmallStringView {
    bool isInlined() const;
 
    inline friend bool operator==(const SmallStringView& lhs,
-                                 const std::experimental::string_view& rhs);
+                                 const std::string_view& rhs);
 
    friend std::ostream& operator<<(std::ostream& os,
                                    const SmallStringView& str);
@@ -32,7 +32,7 @@ class SmallStringView {
 
    inline void assign(std::string& data);
 
-   inline void assign(std::experimental::string_view& data);
+   inline void assign(std::string_view& data);
 
    void clear();
 

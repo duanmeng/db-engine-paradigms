@@ -11,7 +11,7 @@ inline bool fmemcmp(const char* __restrict__ left,
    return true;
 }
 
-SmallStringView::SmallStringView(std::experimental::string_view& s) {
+SmallStringView::SmallStringView(std::string_view& s) {
    assign(s);
 }
 
@@ -34,7 +34,7 @@ bool operator==(const SmallStringView& lhs, const SmallStringView& rhs) {
 }
 
 bool operator==(const SmallStringView& lhs,
-                const std::experimental::string_view& rhs) {
+                const std::string_view& rhs) {
    auto size = lhs.size();
    if (size != rhs.size())
       return false;
@@ -67,7 +67,7 @@ void SmallStringView::assign(const char* start, uint32_t size) {
 
 void SmallStringView::assign(string& data) { assign(data.data(), data.size()); }
 
-void SmallStringView::assign(std::experimental::string_view& data) {
+void SmallStringView::assign(std::string_view& data) {
    assign(data.data(), data.size());
 }
 
